@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
-                        docker.withRegistry('<Your AWS ECR URL>', 'ecr:<Your ECR Zone>:<Your Jenkins Credentials>') {
+                        docker.withRegistry('https://292602749294.dkr.ecr.ap-south-1.amazonaws.com/jenkins-repo', 'ecr:ap-south-1:aws-credentials') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                     }
