@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: ecr-app-underwater
   labels:
-    app: octopus-underwater-app
+    app: underwater
 spec:
   selector:
     matchLabels:
-        app: octopus-underwater-app
+        app: underwater
   replicas: 3
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: octopus-underwater-app
+        app: underwater
     spec:
       containers:
-        - name: octopus-underwater-app
-          image: 292602749294.dkr.ecr.ap-south-1.amazonaws.com/jenkins-repo/underwater:latest
+        - name: underwater
+          image: 292602749294.dkr.ecr.ap-south-1.amazonaws.com/underwater:latest
           ports:
             - containerPort: 80
               protocol: TCP

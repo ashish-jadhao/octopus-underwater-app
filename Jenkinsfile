@@ -11,7 +11,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Build') { 
             steps { 
                 script{
@@ -24,7 +24,7 @@ pipeline {
                  echo 'Empty'
             }
         }
-        stage('Deploy') {
+        stage('Push') {
             steps {
                 script{
                         docker.withRegistry('https://292602749294.dkr.ecr.ap-south-1.amazonaws.com/underwater', 'ecr:ap-south-1:aws-credentials') {
@@ -34,5 +34,11 @@ pipeline {
                 }
             }
         }
+        stage('Deploy'){
+            steps {
+                 sh 'kubectl apply -f deployment.yml'
+            }
+        }
+
     }
 }
