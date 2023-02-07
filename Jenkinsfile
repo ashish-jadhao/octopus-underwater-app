@@ -28,6 +28,7 @@ pipeline {
             steps {
                 script{
                         docker.withRegistry('https://292602749294.dkr.ecr.ap-south-1.amazonaws.com/underwater', 'ecr:ap-south-1:aws-credentials') {
+                    app.push("${env.BUILD_NUMBER}")        
                     app.push("latest")
                     }
                 }
