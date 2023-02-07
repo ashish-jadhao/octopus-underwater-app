@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                 sh 'kubectl apply -f deployment.yml --context cicd-demo.ap-south-1.eksctl.io'
+                 sh 'kubectl apply -f deployment.yml --context cluster: arn:aws:eks:ap-south-1:292602749294:cluster/cicd-demo'
             }
         }
 
