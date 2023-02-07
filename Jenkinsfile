@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                 sh 'kubectl apply -f deployment.yml --context cicd-demo'
+                 sh 'kubectl apply -f deployment.yml --context cicd-demo.ap-south-1.eksctl.io'
             }
         }
 
